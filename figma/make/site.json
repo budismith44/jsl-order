@@ -1,0 +1,10 @@
+{
+  "description": "Streamline order management for Jogja Sky Lounge by recording customer details, table codes, orders, and special requests, with direct printing capabilities.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

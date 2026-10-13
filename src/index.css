@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", sans-serif;
+  --font-display: "Playfair Display", serif;
+  --color-canvas: #f6f5f1;
+  --color-sidebar: #17201d;
+  --color-ink: #17201d;
+  --color-muted: #7a817e;
+  --color-line: #e8e8e3;
+  --color-brand: #d9a840;
+  --color-brand-dark: #9b711e;
+  --color-brand-deep: #725016;
+  --color-brand-soft: #f8edcf;
+  --color-success: #45966d;
+  --color-success-deep: #28704d;
+  --color-success-soft: #e6f4ec;
+  --color-danger: #bd5149;
+  --color-waiting: #9a6332;
+  --color-waiting-soft: #fbefe3;
+  --color-note: #fbf6e9;
+  --color-note-ink: #755f34;
+  --shadow-soft: 0 12px 35px rgba(30, 40, 35, 0.05);
+  --shadow-toast: 0 14px 40px rgba(10, 15, 13, 0.25);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    background: var(--color-canvas);
+    font-family: var(--font-sans);
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .nav-item {
+    @apply flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-sm font-medium text-white/60 transition hover:bg-white/6 hover:text-white;
+  }
+
+  .nav-item-active {
+    @apply bg-white/10 text-white shadow-sm;
+  }
+
+  .nav-item-active svg {
+    @apply text-brand;
+  }
+
+  .icon-button {
+    @apply flex size-11 items-center justify-center rounded-xl border border-line bg-white transition hover:border-brand hover:text-brand-dark;
+  }
+
+  .icon-tile {
+    @apply flex size-11 items-center justify-center rounded-xl bg-canvas text-ink;
+  }
+
+  .label {
+    @apply block text-sm font-semibold text-ink;
+  }
+
+  .input {
+    @apply h-12 w-full rounded-xl border border-line bg-white px-3.5 text-sm text-ink outline-none transition placeholder:text-muted/60 focus:border-brand focus:ring-4 focus:ring-brand/10;
+  }
+
+  .qty-button {
+    @apply flex h-full w-9 items-center justify-center text-muted transition hover:text-brand-dark;
+  }
+
+  .primary-button {
+    @apply flex h-13 items-center justify-center gap-2 rounded-xl bg-sidebar px-5 text-sm font-bold text-white shadow-lg transition hover:bg-sidebar/90 active:scale-[0.99];
+  }
+
+  .secondary-button {
+    @apply flex h-9 items-center gap-1.5 rounded-lg border border-line bg-white px-3 text-xs font-bold text-ink transition hover:border-brand;
+  }
+
+  .success-button {
+    @apply flex h-9 items-center gap-1.5 rounded-lg bg-success-soft px-3 text-xs font-bold text-success-deep transition hover:bg-success hover:text-white;
+  }
+
+  .export-button {
+    @apply flex h-10 items-center gap-2 rounded-xl bg-sidebar px-4 text-xs font-bold text-white transition hover:bg-sidebar/90;
+  }
+
+  .delete-button {
+    @apply flex size-9 items-center justify-center rounded-lg border border-line bg-white text-muted transition hover:border-danger/30 hover:bg-danger/5 hover:text-danger;
+  }
+
+  .danger-button {
+    @apply flex h-11 items-center gap-2 rounded-xl bg-danger px-5 text-sm font-bold text-white transition hover:bg-danger/90;
+  }
+
+  .receipt {
+    font-family: monospace;
+    font-size: 12pt;
+    line-height: 1.5;
+    margin: 0 auto;
+    width: 72mm;
+  }
+
+  .receipt-title {
+    font-size: 15pt;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .receipt-items {
+    font-weight: 700;
+  }
+
+  .receipt-footer {
+    text-align: center;
+  }
+}
+
+@media print {
+  @page {
+    margin: 6mm;
+    size: 80mm auto;
+  }
+
+  body {
+    background: white;
+  }
+}
